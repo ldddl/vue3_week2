@@ -9,7 +9,6 @@ const app = {
       tempProduct:{},
       api_path:'ldddl',
       url:'https://vue3-course-api.hexschool.io/v2',
-      testData:{},
     };
   },
   methods:{ // 方法集
@@ -33,7 +32,15 @@ const app = {
         }).catch((err) => {
           console.log(err);
         });
-    }
+    },
+  },
+  
+  computed:{
+    total(){
+      // 回傳結果會直接渲染到畫面上
+      let total = Object.keys(this.products).length;
+      return total;
+  }
   },
   mounted(){ // 生命週期
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*\=\s*([^;]*).*$)|^.*$/, "$1");
